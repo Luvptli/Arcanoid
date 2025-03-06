@@ -18,16 +18,26 @@ public class Bloques : MonoBehaviour
     public int filas = 2;
     public int columnas = 3;
 
+    public float totalBloques =16;
 
 
     void Start()
     {
 
         GenerarMapa();
-
+       
     }
 
-    // M�todo para generar el mapa aleatorio
+    void Update()
+    {
+        if (totalBloques <= 0)
+        {
+            FindObjectOfType<ScreenScript>().pantallaG.SetActive(true);
+            FindObjectOfType<MovimientoPelota>().juegoEmpezo = false;
+            FindObjectOfType<ScreenScript>().pantallaG.SetActive(false);
+        }
+    }
+    
     public void GenerarMapa()
     {
         for (int fila = 0; fila < filas; fila++)
@@ -45,11 +55,10 @@ public class Bloques : MonoBehaviour
             }
 
         }
-
     }
 
-
-
-
-
+    public void Restar()
+    {
+        totalBloques--;
+    }
 }

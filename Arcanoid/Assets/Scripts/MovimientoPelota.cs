@@ -11,9 +11,11 @@ public class MovimientoPelota : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI timeLabel;
     [SerializeField]
+    TextMeshProUGUI timeLabel2;
+    [SerializeField]
+    TextMeshProUGUI timeLabel3;
+    [SerializeField]
     public float tiempoPartida;
-
-    bool pelotaMoviendose = false;
 
     [SerializeField]
     public Rigidbody pelotaRb;
@@ -52,25 +54,21 @@ public class MovimientoPelota : MonoBehaviour
 
         if (juegoEmpezo)
         {
-            //gameObject.transform.position = new Vector3(0f, 2.25f, 3.8f);
             tiempoPartida += Time.deltaTime;
             timeLabel.text = tiempoPartida.ToString();
+            timeLabel2.text = tiempoPartida.ToString();
+            timeLabel3.text = tiempoPartida.ToString();
             timeLabel.text = string.Format("{0:00}:{1:00}:{2:00}", minutos, segundos, milesimas);
+            timeLabel2.text = string.Format("{0:00}:{1:00}:{2:00}", minutos, segundos, milesimas);
+            timeLabel3.text = string.Format("{0:00}:{1:00}:{2:00}", minutos, segundos, milesimas);
             transform.parent = null;
-            //transform.position = new Vector3(0, 2.25f, 3.8f);
         }
         else
         {
-            //transform.position = posInicial;
-
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                
                 juegoEmpezo = true;
-                
                 pelotaRb.velocity = velPelota;
-                
-                //gameObject.transform.position = ;
             }
         }
     }
@@ -79,7 +77,6 @@ public class MovimientoPelota : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Muro"))
         {
-            
             if (vidas > 0)
             {
                 vidas--;
@@ -99,24 +96,4 @@ public class MovimientoPelota : MonoBehaviour
             }
         }
     }
-
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        pelotaRb.velocity *= velPelota * Time.deltaTime;
-    }
-
-    public void ResetPelota()
-    {
-        pelotaRb.velocity = Vector3.zero;
-        transform.position = new Vector3(0, 2.25f, 3.8f);
-        juegoEmpezo = false;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Pelota"))
-        {
-            ResetPelota();
-        }
-    }*/
 }

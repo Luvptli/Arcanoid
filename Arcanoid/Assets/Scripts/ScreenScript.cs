@@ -100,9 +100,8 @@ public class ScreenScript : MonoBehaviour
         if (estaJugando & Input.GetKeyDown(KeyCode.Escape))
         {
             canvasPausa.SetActive(true);
-            movimientoJugador.enabled = false;
-            movimientoPelota.enabled = false;
-            FindObjectOfType<MovimientoPelota>().pelotaRb.velocity = Vector3.zero;
+           
+            Time.timeScale = 0f;
         }   
     }
 
@@ -110,9 +109,7 @@ public class ScreenScript : MonoBehaviour
     {
         estaJugando = true;
         canvasPausa.SetActive(false);
-        FindObjectOfType<MovimientoPelota>().pelotaRb.velocity = FindObjectOfType<MovimientoPelota>().transform.position;
-        movimientoJugador.enabled = true;
-        movimientoPelota.enabled = true;
+        Time.timeScale=1f;
     }
 
     public void StartButton()
@@ -131,6 +128,7 @@ public class ScreenScript : MonoBehaviour
     {
         pantallaInfo.SetActive(false);
         estaJugando = true;
+        pantallaNewG.SetActive(false);
         //tiempoSinFuncionar += Time.deltaTime;
         //if (tiempoSinFuncionar>=5.0f)
         //{
