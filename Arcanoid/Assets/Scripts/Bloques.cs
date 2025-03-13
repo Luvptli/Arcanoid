@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Bloques : MonoBehaviour
 {
-    
-  //  public int vidaBloq;
-   // public static MapaAleatorio instance;
     public GameObject[] prefabs; 
     public int anchoMapaMin = -20;
     public int anchoMapaMax = 25; 
@@ -23,9 +20,7 @@ public class Bloques : MonoBehaviour
 
     void Start()
     {
-
         GenerarMapa();
-       
     }
 
     void Update()

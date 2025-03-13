@@ -119,4 +119,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaBloq: 3
-  totalBloq: 16
+  powerUps:
+  - {fileID: 4542761497236254570, guid: 113902b6cefac4b4598b5e0a7d82ef6f, type: 3}
+  - {fileID: 4542761497236254570, guid: 0f6d975d89cd36b49a03edf8929b5131, type: 3}
+  - {fileID: 4542761497236254570, guid: afacc00fd842dfb42b00f0839e8f5a4a, type: 3}
+  - {fileID: 4542761497236254570, guid: 697f96fd8ef3de044ae4acb87222bc65, type: 3}
+  - {fileID: 4542761497236254570, guid: 5d96fcc3d42cda84fafadfeef6f4868a, type: 3}
+  probabilidadPowerUp: 0.3
+  valor: 3000
+  scoreBehaviour: {fileID: 0}

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 337969600895993883}
   - component: {fileID: 7712954408528561043}
   - component: {fileID: 7547223688010570601}
+  - component: {fileID: 8978073438888891692}
   m_Layer: 0
-  m_Name: PowerUp
-  m_TagString: Pelota
+  m_Name: PowerUpDestructor
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5909e3e789c18e148907f9d68ae34d3b, type: 2}
+  - {fileID: 2100000, guid: 88c681ef4cc15bb4184da7851bc08dc3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,8 +129,20 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &8978073438888891692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542761497236254570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d174e9fcf40f94d956c770595dd0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

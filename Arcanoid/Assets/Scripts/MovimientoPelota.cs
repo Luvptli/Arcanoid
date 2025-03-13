@@ -29,10 +29,9 @@ public class MovimientoPelota : MonoBehaviour
     [SerializeField]
     GameObject pantallaP;
 
-    [SerializeField]
-    float vidas = 3;
-    [SerializeField]
-    TextMeshProUGUI vidaLabel;
+    
+    public float vidas = 3;
+    public TextMeshProUGUI vidaLabel;
 
     [SerializeField]
     Vector3 posInicial;

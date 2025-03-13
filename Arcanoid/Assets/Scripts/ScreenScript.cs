@@ -63,7 +63,6 @@ public class ScreenScript : MonoBehaviour
     [SerializeField]
     public GameObject canvasPowerUp;
 
-    //float tiempoSinFuncionar = 0f;
     void Start()
     {
         estaJugando = false;
@@ -91,10 +90,8 @@ public class ScreenScript : MonoBehaviour
             pantallaCompleta.isOn = false;
         }
         RevisarResolucion();
-        canvasPowerUp.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (estaJugando & Input.GetKeyDown(KeyCode.Escape))
@@ -149,7 +146,6 @@ public class ScreenScript : MonoBehaviour
         LeanTween.moveLocalX(pantallaO, 0, 1f);
     }
 
-    //los dos siguientes void son para controlar el volumen
     public void VolumenSlide(float valor)
     {
         estaJugando = false;
@@ -241,8 +237,6 @@ public class ScreenScript : MonoBehaviour
         canvasJuego.SetActive(false);
         pantallaI.SetActive(false);
         pantallaNewG.SetActive(true);
-        //FindObjectOfType<MovimientoPelota>().tiempoPartida = 0;
-
     }
     public void ReintentarButton()
     {
