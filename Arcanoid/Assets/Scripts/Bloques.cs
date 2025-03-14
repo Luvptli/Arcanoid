@@ -25,11 +25,11 @@ public class Bloques : MonoBehaviour
 
     void Update()
     {
-        if (totalBloques <= 0)
+        if (totalBloques <= 1)
         {
             FindObjectOfType<ScreenScript>().pantallaG.SetActive(true);
             FindObjectOfType<MovimientoPelota>().juegoEmpezo = false;
-            FindObjectOfType<ScreenScript>().pantallaG.SetActive(false);
+            FindObjectOfType<ScreenScript>().canvasJuego.SetActive(false);
         }
     }
     

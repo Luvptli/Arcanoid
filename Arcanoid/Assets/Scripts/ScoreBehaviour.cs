@@ -5,6 +5,8 @@ using TMPro;
 
 public class ScoreBehaviour : MonoBehaviour
 {
+    public static ScoreBehaviour instance;
+
     private float score = 0;
     [SerializeField]
     TextMeshProUGUI scoreLabel;
@@ -15,16 +17,19 @@ public class ScoreBehaviour : MonoBehaviour
     [SerializeField]
     RomperBloques romperBloques;
 
-    //no me funciona
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         romperBloques = FindAnyObjectByType<RomperBloques>();
         RefreshLabelScore();
     }
 
-    public void Score()
+    public void Score(float scorebloq)
     {
-        score += romperBloques.valor;
+        score += scorebloq;
         RefreshLabelScore();
     }
 

@@ -11,14 +11,14 @@ public class PowerUpVida : MonoBehaviour
         movimientoPelota = FindObjectOfType<MovimientoPelota>();
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
             Vida();
         }
-        if (collision.gameObject.CompareTag("Muro"))
+        if (other.gameObject.CompareTag("Muro"))
         {
             Destroy(gameObject);
         }

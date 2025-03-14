@@ -13,7 +13,7 @@ public class RomperBloques : MonoBehaviour
 
     void Start()
     {
-        scoreBehaviour = FindObjectOfType<ScoreBehaviour>();
+        scoreBehaviour = ScoreBehaviour.instance;
     }
     private void OnCollisionEnter(Collision other)
     {
@@ -23,7 +23,7 @@ public class RomperBloques : MonoBehaviour
             InstantiatePowerUp();
             Destroy(gameObject);
             FindObjectOfType<Bloques>().Restar();
-            scoreBehaviour.Score();
+            scoreBehaviour.Score(valor);
         }
    }
 

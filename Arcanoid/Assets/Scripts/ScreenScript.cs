@@ -23,7 +23,7 @@ public class ScreenScript : MonoBehaviour
     [SerializeField]
     GameObject pantallaInfo;
     [SerializeField]
-    GameObject canvasJuego;
+    public GameObject canvasJuego;
     [SerializeField]
     GameObject canvasPausa;
 

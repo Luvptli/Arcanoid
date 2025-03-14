@@ -23,7 +23,7 @@ public class MovimientoJugador : MonoBehaviour
     [SerializeField]
     Vector3 posInicial;
 
-    bool movimientoRevertido;
+    public bool movimientoRevertido;
     [SerializeField]
     float tiempoPowerUp;
 
