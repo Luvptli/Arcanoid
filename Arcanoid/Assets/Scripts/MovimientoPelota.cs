@@ -45,6 +45,9 @@ public class MovimientoPelota : MonoBehaviour
     public bool slowBallTrue;
     public float timeInverse = 10f;
 
+    public AudioClip ballChocar;
+    private AudioSource audioSource;
+
     public void Awake()
     {
         instance = this;
@@ -56,6 +59,8 @@ public class MovimientoPelota : MonoBehaviour
         transform.parent = FindObjectOfType<MovimientoJugador>().transform;
         slowBallTrue = false;
         velOrigPelota = pelotaRb.velocity;
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = 1.0f;
     }
     void Update()
     {
@@ -92,6 +97,7 @@ public class MovimientoPelota : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Muro"))
         {
+            audioSource.PlayOneShot(ballChocar);
             if (vidas > 0)
             {
                 vidas--;

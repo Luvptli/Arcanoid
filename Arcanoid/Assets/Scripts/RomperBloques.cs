@@ -16,6 +16,9 @@ public class RomperBloques : MonoBehaviour
     public bool destructor;
     public float timeInverse = 10f;
 
+    public AudioClip brokenWall;
+    private AudioSource audioSource;
+
     public void Awake()
     {
         instance = this;
@@ -23,6 +26,8 @@ public class RomperBloques : MonoBehaviour
     void Start()
     {
         scoreBehaviour = ScoreBehaviour.instance;
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = 1.0f;
     }
     private void OnCollisionEnter(Collision other)
     {
@@ -38,6 +43,7 @@ public class RomperBloques : MonoBehaviour
         if (vidaBloq <= 0)
         {
             InstantiatePowerUp();
+            audioSource.PlayOneShot(brokenWall);
             Destroy(gameObject);
             FindObjectOfType<Bloques>().Restar();
             scoreBehaviour.Score(valor);
