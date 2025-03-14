@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 
 public class MovimientoJugador : MonoBehaviour
 {
+    public static MovimientoJugador instance;
+
     [SerializeField]
     public float speed = 7f;
     [SerializeField]
@@ -24,8 +26,12 @@ public class MovimientoJugador : MonoBehaviour
     Vector3 posInicial;
 
     public bool movimientoRevertido;
-    [SerializeField]
-    float tiempoPowerUp;
+    public float timeInverse = 10f;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -38,6 +44,13 @@ public class MovimientoJugador : MonoBehaviour
         float movement = Input.GetAxisRaw("Horizontal");
         float partida = Input.GetAxisRaw("Vertical");
 
+        if (movimientoRevertido)
+        {
+            movement *= -1;
+            partida *= -1;
+            StartCoroutine(MovimientoJugador.instance.InverseControll());
+        }
+
         float newPosX = transform.position.x + movement * speed * Time.deltaTime;
         float newPosZ = transform.position.z + partida * speed * Time.deltaTime;
 
@@ -45,12 +58,6 @@ public class MovimientoJugador : MonoBehaviour
         newPosZ = Mathf.Clamp(newPosZ, minZ, maxZ);
 
         transform.position = new Vector3(newPosX, transform.position.y, newPosZ);
-
-        if (movimientoRevertido)
-        {
-            movement *= -1;
-            partida *= -1;
-        }
     }
 
     public void ResetPlayer()
@@ -58,6 +65,12 @@ public class MovimientoJugador : MonoBehaviour
         transform.position = posInicial;
     }
 
-    
+    public IEnumerator InverseControll()
+    {
+        MovimientoJugador.instance.movimientoRevertido = true;
+        yield return new WaitForSeconds(timeInverse);
+        MovimientoJugador.instance.movimientoRevertido = false;
+        yield return null;
+    }
 }
 

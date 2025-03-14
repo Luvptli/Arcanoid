@@ -19,6 +19,6 @@ public class PowerUpScore : MonoBehaviour
 
     public void ExtraScore()
     {
-        //sumar 5000 puntos al score total, arreglar primero el funcionamiento de los puntos cuando rompa bloques
+        ScoreBehaviour.instance.Score(5000f);
     }
 }

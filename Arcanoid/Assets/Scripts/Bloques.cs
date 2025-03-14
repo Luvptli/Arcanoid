@@ -15,7 +15,7 @@ public class Bloques : MonoBehaviour
     public int filas = 2;
     public int columnas = 3;
 
-    public float totalBloques =16;
+    public float totalBloques;
 
 
     void Start()
@@ -25,7 +25,7 @@ public class Bloques : MonoBehaviour
 
     void Update()
     {
-        if (totalBloques <= 1)
+        if (totalBloques <= 0)
         {
             FindObjectOfType<ScreenScript>().pantallaG.SetActive(true);
             FindObjectOfType<MovimientoPelota>().juegoEmpezo = false;
@@ -35,6 +35,8 @@ public class Bloques : MonoBehaviour
     
     public void GenerarMapa()
     {
+        totalBloques = filas * columnas;
+
         for (int fila = 0; fila < filas; fila++)
         {
             for (int columna = 0; columna < columnas; columna++)

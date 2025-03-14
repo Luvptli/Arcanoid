@@ -13003,7 +13003,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 42535289}
         m_TargetAssemblyTypeName: ScreenScript, Assembly-CSharp
-        m_MethodName: NuevoJuego
+        m_MethodName: ContinuarJuego
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13661,7 +13661,7 @@ MonoBehaviour:
   maxZ: 18
   posInicial: {x: 0, y: 0, z: 0}
   movimientoRevertido: 0
-  tiempoPowerUp: 0
+  timeInverse: 10
 --- !u!65 &1986086886
 BoxCollider:
   m_ObjectHideFlags: 0

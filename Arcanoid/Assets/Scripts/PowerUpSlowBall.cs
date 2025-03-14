@@ -19,6 +19,6 @@ public class PowerUpSlowBall : MonoBehaviour
 
     public void SlowBall()
     {
-        //jugar con el rb del script movimiento pelota que sea  * 0,5 durante cierto tiempo y dp vuelva a la normalidad
+        MovimientoPelota.instance.pelotaRb.velocity *= 0.5f ;
     }
 }

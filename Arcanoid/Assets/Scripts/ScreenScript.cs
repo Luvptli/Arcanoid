@@ -252,5 +252,15 @@ public class ScreenScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         FindObjectOfType<Bloques>().GenerarMapa();
     }
+
+    public void ContinuarJuego()
+    {
+        estaJugando = true;
+        pantallaG.SetActive(false);
+        canvasJuego.SetActive(true);
+        FindObjectOfType<Bloques>().GenerarMapa();
+        Time.timeScale = 1f;
+    }
+
 }
 

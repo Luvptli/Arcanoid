@@ -8,6 +8,8 @@ using UnityEditor;
 
 public class MovimientoPelota : MonoBehaviour
 {
+    public static MovimientoPelota instance;
+
     [SerializeField]
     TextMeshProUGUI timeLabel;
     [SerializeField]
@@ -39,6 +41,10 @@ public class MovimientoPelota : MonoBehaviour
     [SerializeField]
     GameObject canvasJuego;
 
+    public void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         pelotaRb= GetComponent<Rigidbody>();

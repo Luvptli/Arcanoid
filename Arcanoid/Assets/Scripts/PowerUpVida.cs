@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class PowerUpVida : MonoBehaviour
 {
-    [SerializeField]
-    MovimientoPelota movimientoPelota;
-    void Start()
-    {
-        movimientoPelota = FindObjectOfType<MovimientoPelota>();
-    }
-
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -25,8 +18,8 @@ public class PowerUpVida : MonoBehaviour
     }
     public void Vida()
     {
-        movimientoPelota.vidas += 1;
-        movimientoPelota.vidaLabel.text = movimientoPelota.vidas.ToString();
+        MovimientoPelota.instance.vidas ++;
+        MovimientoPelota.instance.vidaLabel.text = MovimientoPelota.instance.vidas.ToString();
     }
 
 }
