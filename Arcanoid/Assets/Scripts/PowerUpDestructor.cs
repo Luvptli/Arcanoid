@@ -8,17 +8,12 @@ public class PowerUpDestructor : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            StartCoroutine(RomperBloques.instance.DestructionPower());
             Destroy(gameObject);
-            Destruction();
         }
         if (other.gameObject.CompareTag("Muro"))
         {
             Destroy(gameObject);
         }
-    }
-
-    public void Destruction()
-    {
-        //la vida de los bloques deberá ser solo 1 o que la pelota quite 4 de vida
     }
 }

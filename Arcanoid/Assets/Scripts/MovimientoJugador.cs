@@ -48,7 +48,7 @@ public class MovimientoJugador : MonoBehaviour
         {
             movement *= -1;
             partida *= -1;
-            StartCoroutine(MovimientoJugador.instance.InverseControll());
+            StartCoroutine(InverseControll());
         }
 
         float newPosX = transform.position.x + movement * speed * Time.deltaTime;
@@ -67,9 +67,9 @@ public class MovimientoJugador : MonoBehaviour
 
     public IEnumerator InverseControll()
     {
-        MovimientoJugador.instance.movimientoRevertido = true;
+        movimientoRevertido = true;
         yield return new WaitForSeconds(timeInverse);
-        MovimientoJugador.instance.movimientoRevertido = false;
+        movimientoRevertido = false;
         yield return null;
     }
 }

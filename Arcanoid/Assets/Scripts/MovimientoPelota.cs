@@ -20,11 +20,12 @@ public class MovimientoPelota : MonoBehaviour
     public float tiempoPartida;
 
     [SerializeField]
-    public Rigidbody pelotaRb;
+    Rigidbody pelotaRb;
 
     [SerializeField]
-    public Vector3 velPelota;
-    
+    Vector3 velPelota;
+    [SerializeField]
+    Vector3 velOrigPelota;
 
     public bool juegoEmpezo;
 
@@ -41,6 +42,9 @@ public class MovimientoPelota : MonoBehaviour
     [SerializeField]
     GameObject canvasJuego;
 
+    public bool slowBallTrue;
+    public float timeInverse = 10f;
+
     public void Awake()
     {
         instance = this;
@@ -50,6 +54,8 @@ public class MovimientoPelota : MonoBehaviour
         pelotaRb= GetComponent<Rigidbody>();
         posInicial = transform.position;
         transform.parent = FindObjectOfType<MovimientoJugador>().transform;
+        slowBallTrue = false;
+        velOrigPelota = pelotaRb.velocity;
     }
     void Update()
     {
@@ -74,6 +80,10 @@ public class MovimientoPelota : MonoBehaviour
             {
                 juegoEmpezo = true;
                 pelotaRb.velocity = velPelota;
+                if (slowBallTrue ==true)
+                {
+                    StartCoroutine(SlowBallCoroutine());
+                }
             }
         }
     }
@@ -100,5 +110,14 @@ public class MovimientoPelota : MonoBehaviour
                 juegoEmpezo = false;
             }
         }
+    }
+    public IEnumerator SlowBallCoroutine()
+    {
+        slowBallTrue = true;
+        pelotaRb.velocity/=2f;
+        yield return new WaitForSeconds(timeInverse);
+        slowBallTrue = false;
+        pelotaRb.velocity = velOrigPelota;
+        yield return null;
     }
 }

@@ -17,7 +17,6 @@ public class Bloques : MonoBehaviour
 
     public float totalBloques;
 
-
     void Start()
     {
         GenerarMapa();
