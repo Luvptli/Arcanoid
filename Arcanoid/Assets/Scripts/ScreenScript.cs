@@ -58,6 +58,7 @@ public class ScreenScript : MonoBehaviour
     [SerializeField]
     public GameObject pantallaNewG;
 
+
     bool estaJugando;
 
     [SerializeField]
@@ -138,12 +139,12 @@ public class ScreenScript : MonoBehaviour
     public void OptionButton()
     {
         estaJugando = false;
-        LeanTween.moveLocalX(pantallaI, -1920f, 1f).setOnComplete(() =>
-        {
-            pantallaI.SetActive(false);
-        });
+
+        pantallaNewG.SetActive(false);
         pantallaO.SetActive(true);
-        LeanTween.moveLocalX(pantallaO, 0, 1f);
+            pantallaI.SetActive(false);
+
+        
     }
 
     public void VolumenSlide(float valor)
@@ -211,15 +212,11 @@ public class ScreenScript : MonoBehaviour
 
     public void ReturnButton()
     {   
-        LeanTween.moveLocalX(pantallaO, 1920, 1f).setOnComplete(() =>
-        {
-            pantallaO.SetActive(false);
-        });
+           pantallaO.SetActive(false);
         pantallaInfo.SetActive(false);
         pantallaI.SetActive(true);
-        
-        LeanTween.moveLocalX(pantallaI, 0, 1f);
-        //movimientoPelota.Update().tiempoPartida = 0.00f;
+        pantallaNewG.SetActive(true);
+
     }
 
     public void SalirButton()

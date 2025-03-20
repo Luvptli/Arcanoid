@@ -8,7 +8,7 @@ public class PowerUpDestructor : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(RomperBloques.instance.DestructionPower());
+            RomperBloques.instance.destructor=true;
             Destroy(gameObject);
         }
         if (other.gameObject.CompareTag("Muro"))

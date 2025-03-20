@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaBloq: 1
+  vidaSave: 2
   powerUps:
   - {fileID: 4542761497236254570, guid: 113902b6cefac4b4598b5e0a7d82ef6f, type: 3}
   - {fileID: 4542761497236254570, guid: 0f6d975d89cd36b49a03edf8929b5131, type: 3}
